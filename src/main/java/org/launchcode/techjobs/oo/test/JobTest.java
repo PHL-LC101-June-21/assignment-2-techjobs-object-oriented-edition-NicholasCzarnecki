@@ -14,14 +14,14 @@ import static org.junit.Assert.*;
 public class JobTest {
 
     @Test
-    public void testSettingJobId(){
+    public void testSettingJobId() {
         Job job1 = new Job();
         Job job2 = new Job();
         assertNotEquals(job1.getId(), job2.getId());
     }
 
     @Test
-    public void testJobConstructorSetsAllFields(){
+    public void testJobConstructorSetsAllFields() {
         Job fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(fullJob.getName(), "Product tester");
@@ -38,7 +38,7 @@ public class JobTest {
     }
 
     @Test
-    public void testJobsForEquality(){
+    public void testJobsForEquality() {
         Job fullJob1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job fullJob2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
@@ -46,16 +46,16 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringStartsAndEndsWithNewLine(){
+    public void testToStringStartsAndEndsWithNewLine() {
         Job fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        int lastChar = fullJob.toString().charAt(fullJob.toString().length()-1);
+        int lastChar = fullJob.toString().charAt(fullJob.toString().length() - 1);
 
         assertEquals(fullJob.toString().charAt(0), '\n');
         assertEquals(lastChar, '\n');
     }
 
     @Test
-    public void testToStringContainsCorrectLabelsAndData(){
+    public void testToStringContainsCorrectLabelsAndData() {
         Job fullJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(fullJob.toString(), "\nID: " + fullJob.getId() + "\n" +
@@ -67,7 +67,7 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringHandlesEmptyField(){
+    public void testToStringHandlesEmptyField() {
         Job emptyJob = new Job("Data not available", new Employer("Data not available"), new Location("Data not available"), new PositionType("Data not available"), new CoreCompetency("Data not available"));
 
         assertEquals(emptyJob.toString(), "\nID: " + emptyJob.getId() + "\n" +

@@ -3,7 +3,7 @@ package org.launchcode.techjobs.oo;
 import java.util.Objects;
 
 public abstract class JobField {
-    private int id;
+    private final int id;
     private static int nextId = 1;
     private String value;
 
@@ -22,11 +22,11 @@ public abstract class JobField {
     }
 
     public String getValue() {  //I was using this to validate the values passed to the Job constructor for Employer, Location, PositionType, and CoreCompetency.
-                                // The commented code would set it to "Data not available" but the assignment seems to want it all done in the toString method.
+        // The commented code would set it to "Data not available" but the assignment seems to want it all done in the toString method.
 //        if(value.isBlank()){
 //            return "Data not available";
 //        } else {
-            return value;
+        return value;
 //        }
     }
 

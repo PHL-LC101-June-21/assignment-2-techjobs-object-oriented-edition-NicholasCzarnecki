@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Job {
 
-    private int id;
+    private final int id;
     private static int nextId = 1;
 
     private String name;
@@ -27,7 +27,7 @@ public class Job {
 //        if(name.isBlank()) {
 //            this.name = "Data not available";
 //        } else {
-            this.name = name;
+        this.name = name;
 //        }
 
         this.employer = employer;
@@ -37,25 +37,25 @@ public class Job {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
 
         int blankFieldCount = 0;
 
-        ArrayList<String> jobEntries = new ArrayList<String>();
+        ArrayList<String> jobEntries = new ArrayList<>();
         jobEntries.add(name);
         jobEntries.add(employer.getValue());
         jobEntries.add(location.getValue());
         jobEntries.add(positionType.getValue());
         jobEntries.add(coreCompetency.getValue());
 
-        for (int i = 0; i < jobEntries.size(); i++ ){
-            if (jobEntries.get(i).isBlank()){
+        for (int i = 0; i < jobEntries.size(); i++) {
+            if (jobEntries.get(i).isBlank()) {
                 jobEntries.set(i, "Data not available");
                 blankFieldCount++;
             }
         }
 
-        if (blankFieldCount == 5){
+        if (blankFieldCount == 5) {
             return "OOPS! This job does not seem to exist";
         } else {
             return "\nID: " + id + "\n" +
